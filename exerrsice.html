@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript aura</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        button{
+            width: 400px;
+            height: 50px;
+            position: relative;
+            top: 90px;
+            left: 80px;
+            background: royalblue;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 15px;
+            font-size: 20px;
+            padding: 0;
+        }
+
+        #bar{
+            background: green;
+            width: 0%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #text{
+            position: absolute;
+            top: 30%;
+            left: 40%;
+            z-index: 2;
+        }
+
+        button:disabled{
+            cursor: not-allowed;
+        }
+
+       #num{
+        font-weight: bold;
+        font-size: 2rem;
+       }
+    </style>
+</head>
+<body>
+    <button id="btn">
+        <div id="bar">✈</div>
+        <span id="text" class="text">click me</span>
+    </button><span id="num"></span>
+
+    <script>
+        const body = document.body;
+        const btn = document.getElementById('btn');
+        const bar = document.getElementById('bar');
+        const text = document.getElementById('text');
+        const num = document.getElementById('num');
+
+        let width = 0;
+        btn.addEventListener('click',()=>{
+            btn.disabled=true;
+            const mda=setInterval(()=>{
+                width+=1;
+                bar.style.width=width+"%";
+                text.innerHTML='loading.....';
+                text.style.color='white';
+                num.innerText=width+"%";
+                const futa = width>=100.0? clearInterval(mda):pass;
+                if(width>=100){
+                    text.innerHTML='complete';
+                    text.style.color='cyan';
+                }
+                else if(width>=65){
+                    num.style.color='green';
+                }
+                else if(width>=35){
+                    num.style.color='yellow';
+                }
+                else if(width>=0){
+                    num.style.color='red';
+                }
+            },300);
+        })
+    </script>
+</body>
+</html>

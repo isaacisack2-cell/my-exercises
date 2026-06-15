@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in</title>
+    <style>
+        h1{text-align: center;}
+        form{z-index: 100;position: absolute;top: 100px;left: 100px;}
+        #vid{z-index: -100;background-position: center;background-repeat: no-repeat;background-size: cover;min-width: 100%;min-height: 100%;position: absolute;backdrop-filter: blur(20px);}
+    </style>
+</head>
+<body>
+    <video src="coder(1).mp4" autoplay muted loop id="vid"></video>
+    <h1>LOGIN FORM</h1>
+    <form action="" method="post">
+
+        <div class="input-group">
+            <label for="name">USERNAME</label><br>
+            <input type="text" name="username" id="name">
+        </div><br>
+
+        <div class="input-group">
+            <label for="password">PASSWORD</label><br>
+            <input type="password" name="password" id="password">
+        </div><br>
+
+        <button type="submit" name="submit">LOG IN</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: radial-gradient(circle,rgba(0, 0, 0, 0.205),rgba(0, 0, 0, 0.432));
+        }
+
+        #navigation{
+            position: static;
+            margin-bottom: 15px;
+            z-index: 100;
+        }
+
+        .card{
+            height: 90px;
+        }
+
+        .card:hover{
+            transition: all 2s ease-in-out;
+            transform: scale(1.05);
+            box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.822);
+            background: linear-gradient(45deg,blue,green,red,yellow);
+            color: aqua;
+        }
+
+        img{
+            width: 100%;
+        }
+
+        .more{
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            color-scheme: inherit;
+            color: black;
+            background: radial-gradient(circle,red 0%,blue,green,yellow);
+            font-weight: bold;
+        }
+
+        .more2{
+            background: radial-gradient(circle at center,blue 0%,blue 25%,yellow 25%,yellow 50%,black 50%,black 75%,yellow 75%,green 90%);
+            color: brown;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/boxicons.min.css">
+</head>
+<body>
+    <!--navigation bars-->
+    <div class="row bg-dark text-warning" id="navigation">
+        <div class="col-3"><i class="bx bx-home"><a href="#">HOME</a></i></div>
+        <div class="col-3"><i class="bx bx-user"><a href="#">ABOUT US</a></i></div>
+        <div class="col-3"><i class="bx bx-phone"><a href="#">CONTACT US</a></i></div>
+        <div class="col-3"><form action="" class="d-flex"><input type="text" id="search" placeholder="search here ....." class="form-control "><button type="submit"><i class="bx bx-search"></i></button></form></div>
+    </div>
+
+    <!--utangulizi-->
+    <div class="row">
+        <div class="text-center text-info"><h1>ENVIRONMENT AND NATURE PRESERVATION</h1></div>
+    </div>
+
+    <!--cards-->
+    <div class="container">
+    <div class="row">
+        <!--card 1-->
+        <div class="card shadow rounded col-3">
+            <img src="sun rise.jpg" alt="nature" class="img-fluid w-100">
+            <div class="card-body">
+                <div class="card-title"><h2 class="text-shadow">GOD create nature</h2></div>
+                <div class="card-text"><p class="text-secondary"><strong>At the begining</strong>GOD create the univers and all things in it seem to be good <br>so he give to the man so he must conserve all in his name</p></div>
+                <div class="card-foot"><button class="btn btn-outline-primary" id="btn1"><i class="bx bx-library">read more</i></button></div>
+            </div>
+        </div>
+        <div class="col-1"></div>
+        <!--card 2-->
+        <div class="card col-3 rounded shadow">
+            <img src="sun set .jpg" alt="nature of sun">
+            <div class="card-body">
+                <div class="card-title"><h2 class="text-shadow">MAN DESTROY NATURE</h2></div>
+                 <div class="card-text"><p class="text-secondary">The man has destroy what does  GOD create <br><strong>He is the most destructor of the nature although he is the most needly <strong>And GOD create the nature for that man...</strong></strong></p></div>
+                 <div class="card-foot"><button class="btn btn-outline-primary" id="btn2"><i class="bx bx-library">read more</i></button></div>
+        </div>
+        </div>
+        <div class="col-1"></div>
+        <!--card 3-->
+        <div class="card shadow rounded col-3">
+            <img src="sun set (2).jpg" alt="nature 3">
+            <div class="card-body">
+                <div class="card-title"><h2 class="text-shadow">RE-BUILD THE NATURE</h2></div>
+                <div class="card-text"><p class="text-secondary"><strong>ALMIGHT GOD</strong>still loves us <br>for him to give him a perfect brain for consuming, conservating and rebuid his nature so ........</p></div>
+                <div class="card-foot"><button class="btn btn-outline-primary" id="btn3"><i class="bx bx-library">read more</i></button></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="more"></div>
+
+
+<!--video button-->
+<div class="row"><p> </p></div>
+<button id="chkvid" class="btn btn-outline-success rounded-pill">check video</button>
+<script>
+const btn1=document.getElementById('btn1');
+const btn2=document.getElementById('btn2');
+const btn3=document.getElementById('btn3');
+const more=document.getElementById('more');
+
+btn1.addEventListener('click',()=>{
+    /*window.location.href="index.html";*/
+   more.innerHTML=`
+    <strong>ALL HOLY SCRIPTURES SAYS GOD HAD CREATE AMAIZING NATURE WITH HIS HAND</strong>
+    <hr>
+    he used 6 days for creating the whole world and the seven day he rest from the 
+    biggest work he has done
+    now he see everthing seem good 🎉🙌
+    <hr>
+    <strong>GOD CREATE A MAN IN SIXTH DAY OF HIS WORK</strong> 
+    <hr>and he said that let's create a man for us as us in us
+    so he give a man high priority even to dominate the whole world
+    `;
+    more.classList.remove('more2');
+    more.classList.add('more');
+});
+
+btn2.addEventListener('click',()=>{
+    more.classList.remove('more');
+    more.classList.add('more2');
+  more.innerHTML=`<strong>HUMAN IS THE DESTRUCTOR</strong>
+    <hr>Although the world is created for him and he is the one that must conserve it 
+    but now unfortunatly he is the one who destroy more the universe more than any animal
+     and other creatures created by <strong>ALMIGHT GOD</strong>
+    `;
+})
+
+btn3.addEventListener('click',()=>{
+    window.location.href="keyboard.html";
+})
+
+const chk=document.getElementById('chkvid');
+chk.addEventListener('click',()=>{
+    window.location.href="C:\Users\RUKN AL BAB\Desktop\my coding\bruce africa.mp4";
+})
+</script>
+</body>
+</html>

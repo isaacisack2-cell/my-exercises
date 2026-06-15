@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 400px;
+            height: 400px;
+            display: flexbox;
+            background: linear-gradient(45deg,red,blue,green,yellow);
+            padding: 20px;
+            flex-wrap: wrap;
+            backdrop-filter: blur(10px);
+            background: wh;
+
+        }
+
+        img{
+            margin-left: 30px;
+            width: 100px;
+            height: 150px;
+            margin-top: 30px;
+            border-radius: 8px 19px;
+        }
+
+        .container:hover img{
+            filter: blur(10px);
+            opacity: 1.5;
+            transition: all 2s ease-in-out;
+         
+        }
+
+        .container img:hover{
+            filter: blur(0);
+               opacity: 1;
+               transform: scale(1.1);
+               transition: all 0.4s ease;
+               box-shadow: 8px 10px 13px black;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="here.jpg" ><img src="zebra.jpg"><img src="giraff.jpg"><img src="baboon.jpg"><img src="dog.jpg">
+    </div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display: grid;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(42, 165, 149, 0.555);
+        }
+
+        #show{
+            display: inline-table;
+            width: 500px;
+            height: 500px;
+        }
+
+        #input{
+            width: 100%;
+            height: 70px;
+            font-size: 40px;
+            background-color: rgba(0, 0, 0, 0.26);
+            border: none;
+            border-bottom: 2px solid black;
+        }
+
+        #btn2{
+            width: 50%;
+            border-radius: 8px;
+            padding: 20px;
+            font-size: 19px;
+            background: aqua;
+            box-shadow: 0px 0px 45px aqua;
+            position: relative;
+            left: 130px;
+        }
+
+      #show button{
+            width: 100px;
+            height: 50px;
+            border-radius: 9px;
+            border: 1px solid blue;
+            padding: 0px;
+            font-size: 20px;
+            background: linear-gradient(45deg,red,blue);
+            cursor: pointer;
+        }
+
+        #show button:hover{
+            transition: all 1s ease-in-out;
+            transform: scale(1.1);
+            box-shadow: 2px 5px 45px rgba(0, 0, 0, 0.795);
+        }
+
+        #show button:last-child{
+            width: 210px;
+            color: red;
+            background: linear-gradient(-45deg,yellow,green,blue);
+        }
+
+        div{
+            border: 3px solid red ;
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: inset 30px 40px 50px greenyellow;
+            margin-bottom: -150px;
+        }
+
+        h2{
+            font-size: 3rem;
+            position: relative;
+            left: 20px;
+            background-image: url('coast.jpg');
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+    </style>
+</head>
+<body>
+    <h2>SIMPLE CALCULATOR</h2>
+    <div id="show">
+    <input id="input">
+</div>
+<button id="btn2">CHECK</button>
+
+<script>
+    //calling for id from html
+    const show=document.getElementById('show');
+    const input=document.getElementById('input');
+    const btn2=document.getElementById('btn2');
+
+    //numbered buttons for click
+    const lists=['1','2','3','4','5','6','7','8','9','0','+','-','*','/','clear'];
+    function calculate(){
+        for(const list of lists){
+            const btn=document.createElement('button');
+            btn.innerText=list;
+            btn.style.margin="5px"
+            show.appendChild(btn);
+            btn.addEventListener('click',()=>{
+                
+                if(list==='clear'){
+                    input.value="";
+                }else{
+                    input.value+=list;
+                }
+            })
+
+        }
+btn2.addEventListener('click',()=>{
+    input.value=eval(input.value);
+})
+    }
+    calculate();
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="ghost_writer.css">
+</head>
+<body>
+    <video src="coast.mp4" autoplay muted loop loop id="video"></video>
+
+    <!--log in form-->
+    <div class="container" id="container"> 
+        <div class="form-container login-form >
+            <form action="" id="login-form">
+                <h2>LOGIN TO gunda company</h2>
+                <div class="input-group"><input type="text" name="" id="" required>
+                <label for="">user name or email</label>
+                </div>
+                <div class="input-group"><input type="password" name="" id="pass-field" required><label for="">password</label></div>
+                <button type="submit" class="btn">log in</button>
+                <p>dont't have an account? <a href="login.html" onclick="toggle_form" id="to-signup">sign up</a> here</p>
+            </form>
+        </div>
+
+        <!--sign up form-->
+        <div class="form-container signup-form">
+            <form action="">
+                <h2>WELCOME to gunda company</h2>
+                <p>already have an account? click here <a href="login.html" id="to-login">enter here</a></p>
+            </form>
+        </div>
+    <script src="ghost_writer.js"></script>
+</body>
+</html>

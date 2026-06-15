@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: chocolate;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input{
+            width: 100%;
+            min-height: 90px;
+            font-size: 100px;
+            backdrop-filter:(10px) ;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-bottom: 1px solid black;
+            z-index: 2;
+        }
+
+        .isaac{
+            border-radius: 9px;
+            width: 100px;
+            height: 50px;
+            backdrop-filter: (10px);
+            background: linear-gradient(45deg,black);
+            padding: 20 12;
+            color: white;
+            font-size: 20px;
+            border: 2px  solid none;
+        }
+        .isaac:hover{
+            transform: scale(1.05);
+            transition: all 3s ease;
+        }
+
+        #buttons :last-child{
+            margin: 5px;
+            width: 120px;
+            height: 50px;
+            border-radius: 10px;
+            border: 9px blue;
+            box-shadow: 10px 20px 60px black;
+            background-color: rgba(255, 0, 0, 0.493);
+        }
+
+        .space{
+            width: 50%;
+            position: sticky;
+            bottom: 20px;
+            left: 80px;
+            font-size: 30px;
+            padding: 5px 15px;
+            color: cadetblue;
+            border-radius: 19px;
+            background-color: black;
+        }
+
+        #container{
+            border: 10px solid ;
+            padding: 30px ;
+            overflow: hidden;
+           
+        }
+
+        #container>*:not(input){ background: linear-gradient(45deg,red,blue,green,aqua);}
+
+        :nth-child(28){
+            color: red;
+            width: 25%;
+            height: 50px;
+            border-radius: 19px;
+            font-size: 30px;
+            background-color: black;
+        }
+
+        :nth-child(29){
+            border-radius: 20px;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #submit{
+            background-color: aqua;
+            width: 120px;
+            height: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px aqua;
+            position: absolute;
+            top: 65%;
+        }
+
+        #submit:hover{
+            transform: scale(1.05);
+            transition: all 1s ease-in-out;
+        }
+
+        video{
+            z-index: -1;
+            position: absolute;
+            top: 50px;
+            left: 45px;
+            width: 1250px;
+             max-height: 110px;
+            object-fit: cover;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <video src="bruce africa.mp4" autoplay muted loop id="video"></video>
+        <input type="text" id="input" readonly placeholder="what's your name?">
+        <div id="buttons"></div>
+    </div>
+    <button type="button" id="submit">submit</button>
+
+    <script>
+        const body=document.body;
+        const input=document.querySelector('input');
+        const box=document.getElementById('container');
+        const buttons=document.getElementById('buttons')
+        const herufi="qwertyuiopasdfghjklzxcvbnm".split("");
+        herufi.forEach((letter)=>{
+            const btn=document.createElement('button');
+            btn.innerText=letter;
+            buttons.appendChild(btn);
+            btn.style.margin="5px"
+            btn.classList.add('isaac');
+
+            btn.addEventListener('click',()=>{
+                input.value+=letter;
+                //console.log(`umebonyeza button yente thamani ya ${letter}`);
+            })
+        });
+
+        const space=document.createElement('button');
+        space.innerText="space";
+        space.classList.add('space');
+        buttons.appendChild(space);
+        space.addEventListener('click',()=>{
+            input.value+="_";
+        });
+
+
+        const clear=document.createElement('button');
+        clear.innerText="clear";
+        //clear.classList.add(clear);
+        buttons.appendChild(clear);
+        clear.addEventListener('click',()=>{
+            video.src="kizz.mp4"
+            if(input.value===""){
+                alert("oya sasa unataka kusafisha nini hapo? \n acha ujuvi mzee🤣😂");
+            }else{
+                input.value="";
+            }
+        });
+
+        const rangi=["red","blue","green","yellow","chocolate"];
+            let sasa=0;
+        setInterval(()=>{
+            btn.style.backgroundcolor=rangi[sasa];
+                sasa++;
+                 if(sasa>=rangi.length){
+                    sasa=0;
+                 }
+        },1000);
+
+        const backspace=document.createElement('button');
+        backspace.innerText="backspace \n <---";
+        backspace.style.backgroundColor="red";
+        backspace.addEventListener('click',()=>{
+            input.value=input.value.slice(0,-1);
+            video.src="nitasema.mp4"
+        })
+        buttons.appendChild(backspace);
+
+        const submit=document.getElementById('submit');
+        const welcome=document.createElement('div');
+        welcome.style.margin="5px";
+        welcome.style.color="yellow"
+        welcome.style.fontSize="2rem";
+        body.appendChild(welcome);
+        submit.addEventListener('click',()=>{
+            if(input.value===""){
+                welcome.innerHTML=`oya mwanangu andika jina hapo 
+                acha kua kama huelewi
+                this is your last warning 🤣🤣`
+            }else{
+            welcome.innerHTML=`<p>welcome</p><strong>${input.value}</strong>
+            kwenye page yetu ya unyama`
+            }
+
+            const video=document.querySelector('video');
+           var maneno="welcome"+input.value;
+           if(maneno !==""){
+            var speech=new SpeechSynthesisUtterance();
+            speech.text=maneno;
+            speech.volume=1;
+            speech.rate=0.5;
+            speech.pitch=10;
+            window.speechSynthesis.speak(speech);
+           }
+
+
+        })
+        console.log("here is isaac");
+    </script>
+</body>
+</html>
